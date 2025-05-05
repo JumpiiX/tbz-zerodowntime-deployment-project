@@ -1,5 +1,11 @@
 # Zero-Downtime Deployment eines Rust-basierten Blockchain-Indexers
 
+<p align="center">
+  <img src="docs/images/penumbra_logo.png" alt="Penumbra Logo">
+</p>
+
+Dieses Projekt implementiert ein Zero-Downtime Deployment-System für  Penumbra Blockchain Explorer, der kryptographische Blockchain-Daten für Endbenutzer verständlich visualisiert. [Penumbra](https://penumbra.zone/) ist eine datenschutzorientierte Zero-Knowledge-Blockchain, deren komplexe Datenstrukturen ohne spezielle Indexierung und Aufbereitung für normale Anwender nicht lesbar wären.
+
 
 ## Wichtige Links
 
