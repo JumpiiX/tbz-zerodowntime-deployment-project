@@ -45,7 +45,9 @@ Mein aktueller Arbeitgeber [PK Labs](https://www.pklabs.me/) benötigt eine Lös
 - Unseren [Penumbra Blockchain Explorer](https://explorer.penumbra.zone/) 
 
 ---
-
+<p align="center">
+  <img src="docs/images/pklabs_logo.png" alt="PK Labs Logo">
+</p>
 *Dieses Projekt wird im Rahmen der TBZ Semesterarbeit für PK Labs umgesetzt.*
 
 *Letzte Aktualisierung: 05.05.2025*
