@@ -129,7 +129,7 @@ Da es sich um ein Einzelprojekt handelt, wurden folgende Anpassungen am klassisc
 | **Sprint Planning** | Team-Entscheidung | Abstimmung mit Dozenten und eigenständige Planung |
 | **Peer Reviews** | Team-interne Reviews | Dozentenfeedback und Selbstreview anhand von Checklisten |
 | **Product Owner** | Dedizierte Rolle | Rolle wird durch Dozenten und selbst übernommen |
-| **Scrum Master** | Dedizierte Rolle | Selbstorganisation mit regelmäßiger Prozessreflexion |
+| **Scrum Master** | Dedizierte Rolle | Selbstorganisation mit regelmässiger Prozessreflexion |
 
 ### Definition of Done
 
