@@ -136,10 +136,9 @@ Da es sich um ein Einzelprojekt handelt, wurden folgende Anpassungen am klassisc
 Ein Task gilt als abgeschlossen, wenn:
 
 1. Die Implementierung vollständig ist und alle Akzeptanzkriterien erfüllt sind
-2. Eine umfassende Dokumentation erstellt wurde, die für neue Mitarbeiter verständlich ist
+2. Eine umfassende Dokumentation erstellt wurde
 3. Tests durchgeführt und dokumentiert wurden (mit Testprotokoll)
 4. Der Code/die Änderung ist ins Repository eingecheckt
-5. Falls möglich, hat ein Peer-Review (durch Dozenten oder Kollegen) stattgefunden
 
 ---
 <p align="left">
