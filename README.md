@@ -140,6 +140,71 @@ Ein Task gilt als abgeschlossen, wenn:
 3. Tests durchgeführt und dokumentiert wurden (mit Testprotokoll)
 4. Der Code/die Änderung ist ins Repository eingecheckt
 
+## Sprints und Fortschritt
+
+### Sprint 1: Projektsetup und Grundlagen (14.04 - 09.05)
+
+#### Sprint 1 Planung
+
+Die Planung für Sprint 1 wurde am 14.04.2025 durchgeführt und folgende Ziele und Tasks wurden definiert:
+
+**Sprint-Ziel:** Einrichtung der Projektgrundlagen und Dokumentation der Ausgangslage für das Zero-Downtime Deployment-System.
+
+
+Die Planung wurde mit Corrado und Boris (Projektexperte) abgestimmt, und am 17.04.2025 erhielt ich das endgültige "Go" für mein Projekt.
+
+#### Sprint 1 Durchführung und Ergebnisse
+
+Während Sprint 1 wurden folgende Ergebnisse erzielt:
+
+- **GitHub Repository** eingerichtet mit grundlegender Dokumentationsstruktur
+- **GitHub Projects Board** als Scrum-Board konfiguriert mit User Stories und Akzeptanzkriterien
+- **Ausführliche Dokumentation** der Problemstellung, des Lösungsansatzes und der SMART-Ziele im README
+- **Klare Begründung** für die Wahl von Scrum als agile Methodik und notwendige Anpassungen dokumentiert
+- **Visualisierung** des Zero-Downtime Deployment-Prozesses mittels Diagramm
+- **Definition of Done** etabliert und dokumentiert
+- **Sprint 2 Planung** mit konkreten Tasks vorbereitet
+
+#### Sprint 1 Review (09.05.2025)
+
+Der Sprint 1 Review wurde am 09.05.2025 mit Corrado Parisi durchgeführt:
+
+**Agenda:**
+1. Projektstand
+2. Erledigte Tasks
+3. Herausforderungen 
+4. Demo: Repository & Diagramm
+5. Sprint 2 Planung
+6. Fragen & Feedback
+
+**Präsentierte Ergebnisse:**
+- Vollständiges README mit Problemstellung, Lösungsansatz und SMART-Zielen
+- GitHub Repository mit Strukturierung und Dokumentation
+- GitHub Projects Board mit User Stories und Akzeptanzkriterien
+
+**Feedback:**
+- Corrado Parisi hob die Wahl eines anspruchsvollen Projekts positiv hervor
+- Er lobte die gut definierten Akzeptanzkriterien und die Qualität der SMART-Ziele
+
+**Vereinbarte Anpassungen:**
+- Erstellung eines Gantt-Charts für die Projektplanung
+- Entwicklung eines SEUSAG-Diagramms zur Visualisierung der Systemkomponenten
+- Standardisierung des User Story-Formats nach dem Schema "Als [Rolle] möchte ich [Funktionalität], damit [Nutzen]"
+
+**Reflexion:**
+Die Dokumentation der Problemstellung und des Lösungsansatzes war erfolgreich. Die User Stories mit ihren detaillierten Akzeptanzkriterien wurden besonders positiv bewertet. Die Entwicklung eines klaren Deployment-Flow-Diagramms nahm mehr Zeit in Anspruch als geplant, wurde aber mit gutem Ergebnis abgeschlossen. Die Anpassung von Scrum für ein Einzelprojekt stellte eine Herausforderung dar, wurde aber durch die dokumentierten Anpassungen gut gelöst.
+
+### Sprint 2: Server-Infrastruktur (10.05 - 02.06)
+
+#### Sprint 2 Planung
+
+Basierend auf dem Feedback im Sprint 1 Review wurde folgende Planung für Sprint 2 erstellt:
+
+**Sprint-Ziel:** Aufbau der grundlegenden Server-Infrastruktur und Konfiguration der notwendigen Komponenten für das Blue-Green Deployment.
+
+
+Jede Task wird als User Story im Format "Als [Rolle] möchte ich [Funktionalität], damit [Nutzen]" formuliert und mit detaillierten Akzeptanzkriterien versehen. Die vollständigen User Stories sind im [GitHub Projects Board](https://github.com/users/JumpiiX/projects/2/views/1) einsehbar.
+
 ---
 <p align="left">
   <img src="docs/images/pklabs_logo.png" alt="PK Labs Logo">
