@@ -278,18 +278,6 @@ Die Dokumentation der Problemstellung und des Lösungsansatzes war erfolgreich. 
 
 #### Sprint 2 Planung
 
-Basierend auf dem Feedback im Sprint 1 Review wurde folgende Planung für Sprint 2 erstellt:
-
-**Sprint-Ziel:** Aufbau der grundlegenden Server-Infrastruktur und Konfiguration der notwendigen Komponenten für das Blue-Green Deployment.
-
-
-Jede Task wird als User Story im Format "Als [Rolle] möchte ich [Funktionalität], damit [Nutzen]" formuliert und mit detaillierten Akzeptanzkriterien versehen. Die vollständigen User Stories sind im [GitHub Projects Board](https://github.com/users/JumpiiX/projects/2/views/1) einsehbar.
-
-
-### Sprint 2: Server-Infrastruktur (10.05 - 02.06)
-
-#### Sprint 2 Planung
-
 Nach dem erfolgreichen Sprint 1 Review war ich richtig motiviert, endlich mit der technischen Umsetzung zu beginnen. Corrado hatte mir wertvolles Feedback gegeben, und jetzt ging es darum, die Theorie in die Praxis umzusetzen.
 
 **Sprint-Ziel:** Eine funktionierende Production-Umgebung aufbauen, in der unser Penumbra Blockchain Indexer zuverlässig läuft - mit automatischem Deployment und allem Drum und Dran.
