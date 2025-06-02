@@ -75,11 +75,61 @@ Die Lösung für die genannten Herausforderungen ist ein **Blue-Green Deployment
 | **Switch-Mechanismus** | Automatisierte Umschaltung | Shell-Script zur NGINX-Konfiguration |
 | **Rollback-Mechanismus** | Sichere Rückkehr zur vorherigen Version | Automatisiertes Script mit Datenbank-Checks |
 
-#### Visualisierung
+## Projektplanung - Gantt Chart
 
-![Zero-Downtime Deployment Flow](docs/diagrams/deployment_flow.PNG)
-*Abbildung: Visualisierung des Zero-Downtime Deployment-Prozesses mit Blue-Green Strategie vom Code-Push bis zum Traffic-Switch*
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#ffffff',
+    'primaryTextColor': '#000000',
+    'primaryBorderColor': '#000000',
+    'lineColor': '#000000',
+    'sectionBkgColor': '#ffffff',
+    'altSectionBkgColor': '#f0f0f0',
+    'gridColor': '#000000',
+    'section0': '#ffffff',
+    'section1': '#f0f0f0',
+    'section2': '#e0e0e0',
+    'section3': '#d0d0d0',
+    'fontFamily': 'Arial, sans-serif',
+    'fontSize': '12px',
+    'fontWeight': 'bold'
+  }
+}}%%
+gantt
+    title Penumbra Zero-Downtime Deployment
+    dateFormat  YYYY-MM-DD
+    axisFormat  %d.%m
 
+    section Sprint 1 (14.04-09.05)
+    Goals       :done, s1t1, 2025-04-14, 2025-04-16
+    Agile       :done, s1t2, 2025-04-16, 2025-04-18
+    Repo        :done, s1t3, 2025-04-18, 2025-04-20
+    Board       :done, s1t4, 2025-04-20, 2025-04-22
+    Problem     :done, s1t5, 2025-04-22, 2025-04-25
+    Solution    :done, s1t6, 2025-04-25, 2025-04-28
+    DoD         :done, s1t7, 2025-04-28, 2025-04-30
+    Docs        :done, s1t8, 2025-04-30, 2025-05-03
+    Review      :done, s1t9, 2025-05-03, 2025-05-09
+
+    section Sprint 2 (10.05-02.06)
+    Plan        :done, s2t1, 2025-05-10, 2025-05-12
+    Server      :done, s2t2, 2025-05-12, 2025-05-15
+    Docker        :done, s2t5, 2025-05-15, 2025-05-18
+    NGINX       :done, s2t4, 2025-05-18, 2025-05-22
+    SSL         :done, s2t5, 2025-05-22, 2025-05-24
+    CI/CD       :done, s2t6, 2025-05-24, 2025-05-30
+    Docs        :done, s2t7, 2025-05-30, 2025-06-02
+
+    section Sprint 3 (03.06-20.06)
+    Deploy      :active, s3t1, 2025-06-03, 2025-06-10
+    Monitor     :s3t2, 2025-06-05, 2025-06-12
+    Proxy       :s3t3, 2025-06-08, 2025-06-12
+    Pipeline    :s3t4, 2025-06-10, 2025-06-16
+    Testing     :s3t5, 2025-06-12, 2025-06-18
+    Docs        :s3t6, 2025-06-16, 2025-06-20
+```
 ### Projektvisualisierungen
 
 #### SEUSAG-Diagramm
