@@ -945,7 +945,8 @@ Container im Sync gekillt → Script hat erkannt & Rollback gemacht → **Error-
 
 ## Implementierte Scripts und Konfigurationen
 Hier sind die drei Kern-Files des Blue-Green Deployment-Systems damit man alles in einem Markdown hat und somit effizienter und schneller bewerten kann als Dozent:
-deploy.sh
+
+### deploy.sh
 ```bash
 #!/bin/bash
 set -e
@@ -990,7 +991,8 @@ echo "[$(date +'%Y-%m-%d %H:%M:%S')] New container started for $INACTIVE_ENV" | 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Launching monitor script..." | tee -a /opt/deployment/deploy.log
 nohup /opt/deployment/monitor.sh "$INACTIVE_ENV" "$ACTIVE_ENV" "$ACTIVE_PORT" "$INACTIVE_PORT" >> /opt/deployment/deploy.log 2>&1 &
 ```
-monitor.sh
+
+### monitor.sh
 ```bash
 bash#!/bin/bash
 INACTIVE_ENV="$1"
@@ -1187,7 +1189,8 @@ while true; do
   sleep 60
 done
 ```
-nginx.conf
+
+### nginx.conf
 ```nginx
 nginx# Define rate limit zones
 limit_req_zone $binary_remote_addr zone=api_limit:10m rate=30r/s;
