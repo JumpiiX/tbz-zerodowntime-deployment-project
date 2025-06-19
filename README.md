@@ -896,6 +896,22 @@ Mit `curl`-Loop während Live-Deployment getestet – **kein einziger Request ve
 **Vorteil:**  
 Deployments nur bei echten Releases → **kontrollierter Prozess**!
 
+## 📊 Monitoring und Alerting
+
+**Status:** ✅ Slack-Integration läuft!
+
+Das Monitoring-System überwacht automatisch den Blockchain-Sync und sendet Live-Updates an Slack:
+
+- **Start-Notification** mit Target-Blockchain-Höhe
+- **Progress-Updates** bei jeder Million Blöcke mit Speed & ETA
+- **15-Minuten-Warnung** vor Completion
+- **Completion-Alert** wenn Traffic-Switch erfolgt
+
+So sieht es in echt aus:
+
+![Slack Notifications](docs/images/slacknotifications.png)
+*Live Slack-Updates während eines Production Deployments - das Team sieht jeden Fortschritt in Echtzeit*
+
 ---
 
 ## 🧪 Blue-Green Testing - Battle-tested
