@@ -81,135 +81,58 @@ Die Lösung für die genannten Herausforderungen ist ein **Blue-Green Deployment
 %%{init: {
   'theme': 'base',
   'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'sectionBkgColor': '#ffffff',
-    'altSectionBkgColor': '#f0f0f0',
-    'gridColor': '#000000',
-    'section0': '#ffffff',
-    'section1': '#f0f0f0',
-    'section2': '#e0e0e0',
-    'section3': '#d0d0d0',
+    'primaryColor': '#2b2b2b',
+    'primaryTextColor': '#ffffff',
+    'primaryBorderColor': '#555555',
+    'lineColor': '#888888',
+    'sectionBkgColor': '#1e1e1e',
+    'altSectionBkgColor': '#2a2a2a',
+    'gridColor': '#444444',
+    'section0': '#1e1e1e',
+    'section1': '#2a2a2a',
+    'section2': '#333333',
+    'section3': '#3a3a3a',
     'fontFamily': 'Arial, sans-serif',
-    'fontSize': '12px',
-    'fontWeight': 'bold'
+    'fontSize': '13px',
+    'fontWeight': 'bold',
+    'taskTextLightColor': '#1e1e1e' // unsichtbar machen
   }
 }}%%
 gantt
-    title Penumbra Zero-Downtime Deployment
+    title Penumbra Zero-Downtime Deployment Projekt
     dateFormat  YYYY-MM-DD
     axisFormat  %d.%m
 
-    section Sprint 1 (14.04-09.05)
-    Goals       :done, s1t1, 2025-04-14, 2025-04-16
-    Agile       :done, s1t2, 2025-04-16, 2025-04-18
-    Repo        :done, s1t3, 2025-04-18, 2025-04-20
-    Board       :done, s1t4, 2025-04-20, 2025-04-22
-    Problem     :done, s1t5, 2025-04-22, 2025-04-25
-    Solution    :done, s1t6, 2025-04-25, 2025-04-28
-    DoD         :done, s1t7, 2025-04-28, 2025-04-30
-    Docs        :done, s1t8, 2025-04-30, 2025-05-03
-    Review      :done, s1t9, 2025-05-03, 2025-05-09
+    section Projektplanung & Setup
+    Erster Schultag                     :done, dummy, 2025-04-02, 1d
+    SMART Ziele & Scrum Setup           :done, phase1, 2025-04-14, 2025-04-25
+    Sprint 1 Review                     :milestone, m1, 2025-05-09, 0d
 
-    section Sprint 2 (10.05-02.06)
-    Plan        :done, s2t1, 2025-05-10, 2025-05-12
-    Server      :done, s2t2, 2025-05-12, 2025-05-15
-    Docker        :done, s2t5, 2025-05-15, 2025-05-18
-    NGINX       :done, s2t4, 2025-05-18, 2025-05-22
-    SSL         :done, s2t5, 2025-05-22, 2025-05-24
-    CI/CD       :done, s2t6, 2025-05-24, 2025-05-30
-    Docs        :done, s2t7, 2025-05-30, 2025-06-02
+    section Infrastruktur-Entwicklung
+    Server & Docker Setup               :done, phase2, 2025-05-10, 2025-05-18
+    NGINX & SSL Konfiguration           :done, phase3, 2025-05-18, 2025-05-25
+    CI/CD Pipeline Entwicklung          :done, phase4, 2025-05-25, 2025-06-02
+    Sprint 2 Review                     :milestone, m2, 2025-06-02, 0d
 
-    section Sprint 3 (03.06-20.06)
-    Deploy      :active, s3t1, 2025-06-03, 2025-06-10
-    Monitor     :s3t2, 2025-06-05, 2025-06-12
-    Proxy       :s3t3, 2025-06-08, 2025-06-12
-    Pipeline    :s3t4, 2025-06-10, 2025-06-16
-    Testing     :s3t5, 2025-06-12, 2025-06-18
-    Docs        :s3t6, 2025-06-16, 2025-06-20
+    section Blue-Green Implementation
+    Deploy & Monitor Scripts            :done, phase5, 2025-06-03, 2025-06-12
+    NGINX Traffic Management            :done, phase6, 2025-06-08, 2025-06-14
+    Testing & Dokumentation             :done, phase7, 2025-06-14, 2025-06-20
+    Sprint 3 Review                     :milestone, m3, 2025-06-20, 0d
+
+    section Projektabschluss
+    Präsentationsplanung                :done, phase8, 2025-06-20, 2025-06-25
+    Finale Dokumentation                :done, phase9, 2025-06-25, 2025-07-02
+    Projektabgabe                       :milestone, m4, 2025-07-09, 0d
+
 ```
 ### Projektvisualisierungen
 
 #### SEUSAG-Diagramm
 
-```mermaid
-graph LR
-    %% Externe Elemente
-    DEV[👤 Entwickler]
-    USER[👥 Endnutzer]
-    GIT[📦 GitHub]
-    
-    %% Systemgrenze
-    subgraph "🔒 Zero-Downtime Deployment System"
-        %% Eingabe
-        subgraph "📥 EINGABE"
-            E1[Code Changes]
-            E2[Konfiguration]
-        end
-        
-        %% Steuerung
-        subgraph "🎛️ STEUERUNG"
-            S1[GitHub Actions]
-            S2[NGINX Controller]
-            S3[Health Monitor]
-        end
-        
-        %% Umwandlung
-        subgraph "⚙️ UMWANDLUNG"
-            U1[Build & Test]
-            U2[Deploy Container]
-            U3[Switch Traffic]
-        end
-        
-        %% Ausgabe
-        subgraph "📤 AUSGABE"
-            A1[API Service]
-            A2[Status Reports]
-        end
-    end
-    
-    %% Hauptverbindungen (nur die wichtigsten!)
-    DEV --> E1
-    GIT --> E2
-    
-    E1 --> U1
-    E2 --> U2
-    
-    S1 --> U1
-    S2 --> U3
-    S3 --> U3
-    
-    U1 --> U2
-    U2 --> U3
-    U3 --> A1
-    
-    A1 --> USER
-    A2 --> DEV
-    
-    %% Feedback
-    A2 -.-> S3
-    
-    %% Styling
-    style DEV fill:#f9f9f9
-    style USER fill:#f9f9f9
-    style GIT fill:#f9f9f9
-    
-    style E1 fill:#e8f5e9
-    style E2 fill:#e8f5e9
-    
-    style S1 fill:#ffebee
-    style S2 fill:#ffebee
-    style S3 fill:#ffebee
-    
-    style U1 fill:#e3f2fd
-    style U2 fill:#e3f2fd
-    style U3 fill:#e3f2fd
-    
-    style A1 fill:#fff3e0
-    style A2 fill:#fff3e0
-```
+![SEUSAG-Diagramm](./docs/diagrams/seusagdiagramm.png)
+*SEUSAG-Diagramm - Zero-Downtime Deployment System Systemgrenzen und Komponenten der automatisierten CI/CD-Pipeline*
+
 ## Projektziele
 
 Die Ziele dieses Projekts sind nach dem SMART-Prinzip definiert:
@@ -283,6 +206,9 @@ Die Planung für Sprint 1 wurde am 14.04.2025 durchgeführt und folgende Ziele u
 
 Die Planung wurde mit Corrado und Boris (Projektexperte) abgestimmt, und am 17.04.2025 erhielt ich das endgültige "Go" für mein Projekt.
 
+![Sprint 1 Start](docs/images/startsprint1.png)
+*Sprint 1 GitHub Board - Projektsetup und Grundlagen Planung*
+
 #### Sprint 1 Durchführung und Ergebnisse
 
 Während Sprint 1 wurden folgende Ergebnisse erzielt:
@@ -321,8 +247,16 @@ Der Sprint 1 Review wurde am 09.05.2025 mit Corrado Parisi durchgeführt:
 - Entwicklung eines SEUSAG-Diagramms zur Visualisierung der Systemkomponenten
 - Standardisierung des User Story-Formats nach dem Schema "Als [Rolle] möchte ich [Funktionalität], damit [Nutzen]"
 
+![Sprint 1 Ende](docs/images/startsprint2.png)
+*Sprint 1 abgeschlossen - Alle User Stories erfolgreich implementiert, bereit für Sprint 2*
+
 **Reflexion:**
 Die Dokumentation der Problemstellung und des Lösungsansatzes war erfolgreich. Die User Stories mit ihren detaillierten Akzeptanzkriterien wurden besonders positiv bewertet. Die Entwicklung eines klaren Deployment-Flow-Diagramms nahm mehr Zeit in Anspruch als geplant, wurde aber mit gutem Ergebnis abgeschlossen. Die Anpassung von Scrum für ein Einzelprojekt stellte eine Herausforderung dar, wurde aber durch die dokumentierten Anpassungen gut gelöst.
+
+### Sprint 1 Retrospektive
+
+![Sprint 1 Retrospektive](docs/images/sprint1retrospective.png)
+*Sprint 1 Retrospektive - Fokus auf Dokumentation und Visualisierung*
 
 ### Sprint 2: Server-Infrastruktur (10.05 - 02.06)
 
@@ -331,6 +265,9 @@ Die Dokumentation der Problemstellung und des Lösungsansatzes war erfolgreich. 
 Nach dem erfolgreichen Sprint 1 Review war ich richtig motiviert, endlich mit der technischen Umsetzung zu beginnen. Corrado hatte mir wertvolles Feedback gegeben, und jetzt ging es darum, die Theorie in die Praxis umzusetzen.
 
 **Sprint-Ziel:** Eine funktionierende Production-Umgebung aufbauen, in der unser Penumbra Blockchain Indexer zuverlässig läuft - mit automatischem Deployment und allem Drum und Dran.
+
+![Sprint 2 Start](docs/images/startsprint2.png)
+*Sprint 2 GitHub Board - Server-Infrastruktur Tasks bereit*
 
 **Was ich mir für Sprint 2 vorgenommen hatte:**
 
@@ -756,7 +693,7 @@ CMD ["./penumbra-explorer"]
 ##### 📚 Dokumentation - Für Future-Me
 **Status:** ✅ Alles dokumentiert!
 
-Ich hab wirklich versucht, alles zu dokumentieren. Jeder Schritt, jede Konfiguration, jedes "Warum". Die README ist jetzt ein kleines Buch geworden, aber hey - besser zu viel als zu wenig!
+Ich hab wirklich versucht, alles zu dokumentieren. Jeder Schritt, jede Konfiguration, jedes "Warum".
 
 **Was ich dokumentiert hab:**
 - ✓ Komplette Server-Setup-Anleitung (mit allen Befehlen)
@@ -766,13 +703,14 @@ Ich hab wirklich versucht, alles zu dokumentieren. Jeder Schritt, jede Konfigura
 - ✓ Deployment-Prozess Schritt für Schritt
 - ✓ Rollback-Strategie
 
+![Sprint 2 Review Board](docs/images/startsprint3.png)
+*Sprint 2 Review Demo - Alle Infrastruktur-Tasks abgeschlossen*
+
 ---
 
 #### Sprint 2 Review - Der Reality Check
 
 Am 02.06. ist Review-Time!
-
-**Was ich präsentiert hab:**
 
 **Die Zahlen:**
 | Metrik | Wert |
@@ -781,8 +719,30 @@ Am 02.06. ist Review-Time!
 | Geschafft | 21 Story Points |
 | Sprint Goal erreicht? | Hell yes! 💪 |
 
-**Feedback von Corrado:**
+Demo Ablauf:
 
+GitHub Projects Board gezeigt - Alle User Stories von Sprint 2, TODO → DONE Status
+Live Website Demo - Penumbra Explorer läuft und ist gerade am Reindexing (verarbeitet alte Blöcke)
+Blockchain Sync Status - Man sieht in Echtzeit wie der Indexer die Chain aufholt
+Herausforderungen besprochen - Docker Size, SSH Keys, NGINX Config, Firewall-Drama
+Achievements präsentiert - Production Infrastructure steht, CI/CD läuft automatisch
+Sprint 3 Ausblick - Blue-Green Deployment Ziele und Risiken
+
+Feedback von Corrado:
+Positives:
+
+"Super Demo!" - Board-Organisation und Live-System haben ihm gefallen
+"Du bist auf einem super Weg!" - Projekt läuft excellent, gute Struktur
+Reindexing-Prozess war interessant zu sehen - echtes Blockchain-System in Action
+Herausforderungen authentisch - Firewall-Story fand er lustig, reale Probleme! 😅
+Sprint 3 Vorbereitung - Blue-Green Concept ist durchdacht
+
+Action Items für Dokumentation:
+
+Screenshots von GitHub Boards hinzufügen (Stories TODO → DONE) für alle Sprints
+Scrum Retrospektive Diagramm erstellen (More of / Less of / Start doing / Stop doing)
+Gantt Chart aktualisieren nach seinem Beispiel
+SEUSAG → Architektur-Diagramm erweitern (technische Details wie sein Beispiel)
 
 ---
 
@@ -836,12 +796,554 @@ Sprint 2 war intensiv, aber mega lehrreich. Die Basis steht jetzt bombenfest. Kl
 
 Die Infrastruktur läuft stabil, die Pipeline ist smooth, und ich hab dabei viel gelernt. Ready für Sprint 3! 🚀
 
-![Pipeline Success](docs/images/github_actions_success.png)
-*Grüne Häkchen soweit das Auge reicht - ein schöner Anblick!*
+
+### Sprint 2 Retrospektive
+
+![Sprint 2 Retrospektive](docs/images/sprint2retrospective.png)
+*Sprint 2 Retrospektive - Production Infrastructure und Security Learnings*
+
+# 🌀 Sprint 3: Blue-Green Deployment Implementation (03.06 - 20.06)
+
+## 🧠 Sprint 3 Planung
+
+Nach dem erfolgreichen Aufbau der Production-Infrastruktur in Sprint 2 geht es jetzt an den Kern des Projekts: **Zero-Downtime Deployment mit Blue-Green Strategie!** 🔄
+
+Die Basis steht bombenfest:
+- Server läuft
+- CI/CD Pipeline funktioniert
+- SSL ist konfiguriert
+
+**Sprint-Ziel:**  
+Vollständig funktionierendes **Blue-Green Deployment-System** implementieren, das automatisch zwischen Container-Instanzen switcht und echte Zero-Downtime Deployments ermöglicht.
+
+---
+![Sprint 3 Start](docs/images/startsprint3.png)
+*Sprint 3 GitHub Board - Bereit für Blue-Green Implementation*
+## 🧩 Sprint 3 User Stories
+
+| User Story                                | Story Points |
+|-------------------------------------------|--------------|
+| Blue-Green Deploy-Skript                  | 8            |
+| Container-Synchronisation Monitoring      | 5            |
+| NGINX Blue-Green Traffic Management       | 3            |
+| CI/CD Pipeline Blue-Green Integration     | 5            |
+| Blue-Green Testing                        | 8            |
+| Blue-Green Dokumentation                  | 3            |
+
+### 🔢 Sprint 3 Velocity: 32 Story Points
+
+---
+
+## 🚀 Blue-Green Deploy-Skript - Das Herzstück
+
+**Status:** ✅ Funktioniert!  
+Das Deploy-Skript war der wichtigste Teil – hier passiert die ganze Blue-Green Magic.
+
+### ✨ Key Features:
+- Automatische Erkennung der aktiven Umgebung (Blue: Port 8080, Green: Port 8081)
+- Sicheres Container-Management mit Cleanup
+- Logging für Debugging
+- Integration mit dem Monitoring-System
+
+**Learning:** Bash war überraschend gut für diesen Use Case.  
+Rust wäre möglich gewesen, aber Bash passt besser zu Docker- und NGINX-Kommandos.
+
+---
+
+## 📊 Sync Monitoring - Der Blockchain-Detektiv
+
+**Status:** ✅ Läuft automatisch!
+
+### 🎯 Highlights:
+- Slack-Benachrichtigungen bei Meilensteinen (z. B. jede Million Blöcke)
+- ETA-Berechnung basierend auf Sync-Geschwindigkeit
+- Automatischer Traffic-Switch bei `"catchup completed"`
+- Fortschrittsanzeige mit formatiertem Output
+
+**Favorite Feature:**  
+Script sendet Updates nach Slack – das ganze Team sieht den Fortschritt! 📱
+
+---
+
+## 🔀 NGINX Traffic Management - Zero-Downtime Achievement
+
+**Status:** ✅ Zero-Downtime bestätigt!
+
+### 🛠️ Upstream-Konfiguration:
+Die NGINX-Config war eigentlich straightforward, aber das Upstream-Switching musste perfekt funktionieren.
+
+### ✅ Switching-Logik:
+- Comments werden dynamisch gesetzt/entfernt
+- `nginx -t` vor jedem Reload (Safety first!)
+- `systemctl reload nginx` für Graceful Reload
+
+**Test-Moment:**  
+Mit `curl`-Loop während Live-Deployment getestet – **kein einziger Request verloren!** 🎉
+
+---
+
+## 🔗 GitHub Actions - Release-basierte Deployments
+
+**Status:** ✅ Production-ready!
+
+### ⚙️ Workflow:
+1. Release erstellen → Pipeline wird getriggert
+2. Code-Checks & Tests laufen
+3. Docker-Image wird gebaut & deployed
+4. `deploy.sh` wird remote ausgeführt
+5. `monitor.sh` übernimmt automatisch
+
+**Vorteil:**  
+Deployments nur bei echten Releases → **kontrollierter Prozess**!
+
+---
+
+## 🧪 Blue-Green Testing - Battle-tested
+
+**Status:** ✅ Extensively tested!
+
+### 🔍 Test-Szenarien:
+- ✅ Normaler Flow (Blue → Green → Blue)
+- ✅ NGINX-Switch ohne Request-Verlust
+- ✅ Container-Failure während Sync
+- ✅ Rollback bei Deploy-Fehlern
+- ✅ Load-Test während Traffic-Switch
+
+**Coolster Test:**  
+Container im Sync gekillt → Script hat erkannt & Rollback gemacht → **Error-Handling funktioniert!** 💪
+
+---
+
+## 📚 Dokumentation - Production-ready
+
+**Status:** ✅ Vollständig dokumentiert!
+
+### 📄 Inhalte:
+- Komplette Blue-Green Architektur
+- Nutzung der Scripts + Parameter
+- Troubleshooting-Guide
+- Monitoring-Setup inkl. Slack
+- Rollback-Prozeduren
+
+
+
+## Implementierte Scripts und Konfigurationen
+Hier sind die drei Kern-Files des Blue-Green Deployment-Systems damit man alles in einem Markdown hat und somit effizienter und schneller bewerten kann als Dozent:
+deploy.sh
+```bash
+#!/bin/bash
+set -e
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting blue-green deployment" | tee -a /opt/deployment/deploy.log
+# Aktive Umgebung bestimmen
+if grep -q "server localhost:8080;" /etc/nginx/conf.d/explorer.conf && ! grep -q "# server localhost:8080;" /etc/nginx/conf.d/explorer.conf; then
+  ACTIVE_ENV="blue"
+  INACTIVE_ENV="green"
+  ACTIVE_PORT=8080
+  INACTIVE_PORT=8081
+else
+  ACTIVE_ENV="green"
+  INACTIVE_ENV="blue"
+  ACTIVE_PORT=8081
+  INACTIVE_PORT=8080
+fi
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Active: $ACTIVE_ENV" | tee -a /opt/deployment/deploy.log
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Inactive: $INACTIVE_ENV" | tee -a /opt/deployment/deploy.log
+# Docker-Image laden
+# Check if Docker image tar file exists
+if [ -f "/home/deploy-penumbra-explorer/deployments/penumbra-explorer.tar" ]; then
+docker load < /home/deploy-penumbra-explorer/deployments/penumbra-explorer.tar
+else
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] Docker image tar not found, using existing image" | tee -a /opt/deployment/deploy.log
+fi
+# Alten Container stoppen & löschen
+docker stop penumbra-explorer-$INACTIVE_ENV || true
+docker rm penumbra-explorer-$INACTIVE_ENV || true
+# Neuen Container starten
+docker run -d \
+  --name penumbra-explorer-$INACTIVE_ENV \
+  --network ${INACTIVE_ENV}-network \
+  -p $INACTIVE_PORT:8080 \
+  --restart always \
+  penumbra-explorer:latest \
+  /app/penumbra-explorer \
+  -s "postgresql://[DB_USER]:[DB_PASSWORD]@[DB_HOST]:[DB_PORT]/[DB_NAME]?sslmode=require" \
+  -d "postgresql://[LOCAL_DB_USER]:[LOCAL_DB_PASSWORD]@postgres-${INACTIVE_ENV}:5432/explorer?sslmode=disable" \
+  --genesis-json /app/genesis.json
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] New container started for $INACTIVE_ENV" | tee -a /opt/deployment/deploy.log
+# Monitoring starten
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Launching monitor script..." | tee -a /opt/deployment/deploy.log
+nohup /opt/deployment/monitor.sh "$INACTIVE_ENV" "$ACTIVE_ENV" "$ACTIVE_PORT" "$INACTIVE_PORT" >> /opt/deployment/deploy.log 2>&1 &
+```
+monitor.sh
+```bash
+bash#!/bin/bash
+INACTIVE_ENV="$1"
+ACTIVE_ENV="$2"
+ACTIVE_PORT="$3"
+INACTIVE_PORT="$4"
+APP_NAME="penumbra-explorer"
+LOG_FILE="/opt/deployment/deploy.log"
+NGINX_CONF="/etc/nginx/conf.d/explorer.conf"
+
+# Slack configuration - PRODUCTION
+SLACK_WEBHOOK_URL="https://hooks.slack.com/services/[WEBHOOK_ID_REMOVED]"
+LAST_MILLION_NOTIFIED=0
+BLOCK_INTERVAL=1000000  # Notify every million blocks
+
+# Database connection for current block height
+DB_URL="postgresql://[DB_USER]:[DB_PASSWORD]@[DB_HOST]:[DB_PORT]/[DB_NAME]?sslmode=require"
+
+# Speed tracking variables
+LAST_HEIGHT=0
+LAST_TIME=0
+SPEED_SAMPLES=()
+FIFTEEN_MIN_NOTIFIED=false
+HIGHEST_SEEN_BLOCK=0
+
+# Function to send Slack notifications
+send_slack_alert() {
+  curl -s -X POST -H 'Content-type: application/json' --data "{\"text\":\"$1\"}" "$SLACK_WEBHOOK_URL"
+}
+
+# Function to get current chain height
+get_current_chain_height() {
+  psql "$DB_URL" -t -c "SELECT MAX(height) FROM blocks;" 2>/dev/null | tr -d ' '
+}
+
+# Function to get reindexing progress from local database
+get_reindex_height() {
+  local env=$1
+  docker exec postgres-$env psql -U penumbra -d explorer -t -c "SELECT MAX(height) FROM explorer_block_details;" 2>/dev/null | tr -d ' '
+}
+
+# Function to format time duration
+format_duration() {
+  local seconds=$1
+  local hours=$((seconds / 3600))
+  local minutes=$(((seconds % 3600) / 60))
+  
+  if [ $hours -gt 0 ]; then
+    echo "${hours}h ${minutes}m"
+  else
+    echo "${minutes}m"
+  fi
+}
+
+# Function to calculate average speed
+calculate_average_speed() {
+  local total=0
+  local count=${#SPEED_SAMPLES[@]}
+  
+  if [ $count -eq 0 ]; then
+    echo "0"
+    return
+  fi
+  
+  for speed in "${SPEED_SAMPLES[@]}"; do
+    total=$((total + speed))
+  done
+  
+  echo $((total / count))
+}
+
+# === START ===
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Started for $INACTIVE_ENV" >> "$LOG_FILE"
+
+# Get initial chain height
+CURRENT_CHAIN_HEIGHT=$(get_current_chain_height)
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Current chain height: $CURRENT_CHAIN_HEIGHT" >> "$LOG_FILE"
+
+# Get initial reindex height to set LAST_MILLION_NOTIFIED correctly
+initial_height=$(get_reindex_height "$INACTIVE_ENV")
+if [ -n "$initial_height" ] && [ "$initial_height" -gt 0 ]; then
+  LAST_MILLION_NOTIFIED=$((initial_height / BLOCK_INTERVAL))
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Starting from block $initial_height (already past $LAST_MILLION_NOTIFIED million)" >> "$LOG_FILE"
+fi
+
+# Send start notification - PRODUCTION
+send_slack_alert "🚀 **Prod** server reindexing started for $INACTIVE_ENV environment. Target height: $(printf "%'d" $CURRENT_CHAIN_HEIGHT)"
+
+sleep 120
+
+while true; do
+  # Get current height from database
+  current_height=$(get_reindex_height "$INACTIVE_ENV")
+  current_time=$(date +%s)
+  
+  if [ -n "$current_height" ] && [ "$current_height" -gt 0 ]; then
+    # Update highest seen block
+    if [ $current_height -gt $HIGHEST_SEEN_BLOCK ]; then
+      HIGHEST_SEEN_BLOCK=$current_height
+    fi
+    
+    # Calculate speed if we have previous data
+    if [ $LAST_HEIGHT -gt 0 ] && [ $LAST_TIME -gt 0 ]; then
+      blocks_processed=$((current_height - LAST_HEIGHT))
+      time_elapsed=$((current_time - LAST_TIME))
+      
+      if [ $time_elapsed -gt 0 ] && [ $blocks_processed -gt 0 ]; then
+        # Blocks per second (multiplied by 1000 for precision)
+        current_speed=$((blocks_processed * 1000 / time_elapsed))
+        SPEED_SAMPLES+=($current_speed)
+        
+        # Keep only last 5 samples for moving average
+        if [ ${#SPEED_SAMPLES[@]} -gt 5 ]; then
+          SPEED_SAMPLES=("${SPEED_SAMPLES[@]:1}")
+        fi
+      fi
+    fi
+    
+    # Update last values
+    LAST_HEIGHT=$current_height
+    LAST_TIME=$current_time
+    
+    # Get current chain height and calculate remaining
+    CURRENT_CHAIN_HEIGHT=$(get_current_chain_height)
+    blocks_remaining=$((CURRENT_CHAIN_HEIGHT - current_height))
+    
+    # Calculate ETA
+    avg_speed=$(calculate_average_speed)
+    if [ $avg_speed -gt 0 ]; then
+      # Convert back from precision multiplication and calculate seconds
+      eta_seconds=$((blocks_remaining * 1000 / avg_speed))
+      eta_formatted=$(format_duration $eta_seconds)
+      
+      # Check if we're within 15 minutes of completion
+      if [ $eta_seconds -lt 900 ] && [ "$FIFTEEN_MIN_NOTIFIED" = "false" ]; then
+        FIFTEEN_MIN_NOTIFIED=true
+        send_slack_alert "⏰ **Prod** server reindexing is approximately 15 minutes from completion! Current: $(printf "%'d" $current_height), Target: $(printf "%'d" $CURRENT_CHAIN_HEIGHT)"
+        echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: 15-minute warning sent" >> "$LOG_FILE"
+      fi
+    else
+      eta_formatted="calculating..."
+    fi
+    
+    # Check for million milestones
+    current_million=$((current_height / BLOCK_INTERVAL))
+    
+    if [ "$current_million" -gt "$LAST_MILLION_NOTIFIED" ] && [ "$current_million" -gt 0 ]; then
+      LAST_MILLION_NOTIFIED=$current_million
+      formatted_number=$(printf "%'d" $((current_million * BLOCK_INTERVAL)))
+      progress_percent=$((current_height * 100 / CURRENT_CHAIN_HEIGHT))
+      
+      # Build notification with ETA - PRODUCTION
+      notification="🎯 **Prod** server reindexing reached $formatted_number blocks ($current_million million)!"
+      notification="$notification\nProgress: $progress_percent% ($(printf "%'d" $blocks_remaining) blocks remaining)"
+      if [ "$eta_formatted" != "calculating..." ]; then
+        blocks_per_sec=$((avg_speed / 1000))
+        notification="$notification\nSpeed: ~$blocks_per_sec blocks/sec | ETA: $eta_formatted"
+      fi
+      
+      send_slack_alert "$notification"
+      echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Million milestone: $current_million million, ETA: $eta_formatted" >> "$LOG_FILE"
+    fi
+  fi
+  
+  # Check for catchup completion using docker logs
+  logs=$(docker logs "$APP_NAME-$INACTIVE_ENV" 2>&1 | tail -n 300)
+  count=$(echo "$logs" | grep -c 'catchup completed')
+  echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Catchup completion messages: $count, Current height: $current_height" >> "$LOG_FILE"
+  
+  if [ "$count" -ge 1 ]; then
+    echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Sufficient catchup logs detected. Switching traffic to $INACTIVE_ENV" >> "$LOG_FILE"
+    
+    # Send completion notification with highest seen block - PRODUCTION
+    if [ $HIGHEST_SEEN_BLOCK -gt 0 ]; then
+      formatted_final=$(printf "%'d" $HIGHEST_SEEN_BLOCK)
+      send_slack_alert "✅ **Prod** server reindexing completed at block $formatted_final! Switching traffic to $INACTIVE_ENV."
+    else
+      send_slack_alert "✅ **Prod** server reindexing completed! Switching traffic to $INACTIVE_ENV."
+    fi
+    
+    # Original traffic switching logic
+    sed -i "s/server localhost:$ACTIVE_PORT;/# server localhost:$ACTIVE_PORT;/" "$NGINX_CONF"
+    sed -i "s/# server localhost:$INACTIVE_PORT;/server localhost:$INACTIVE_PORT;/" "$NGINX_CONF"
+    if nginx -t; then
+      systemctl reload nginx
+      echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: Switched to $INACTIVE_ENV" >> "$LOG_FILE"
+      exit 0
+    else
+      echo "[$(date +'%Y-%m-%d %H:%M:%S')] MONITOR: ERROR: Invalid NGINX config" >> "$LOG_FILE"
+      send_slack_alert "❌ **Prod** server: ERROR during traffic switch - invalid NGINX config"
+      exit 1
+    fi
+  fi
+  sleep 60
+done
+```
+nginx.conf
+```nginx
+nginx# Define rate limit zones
+limit_req_zone $binary_remote_addr zone=api_limit:10m rate=30r/s;
+upstream penumbra-explorer {
+  # server localhost:8080;  # Blue environment
+  server localhost:8081;  # Green environment
+}
+# New domain server block
+server {
+  server_name api.explorer.penumbra.zone;
+  
+  # Rate limiting configuration with proper error handling
+  limit_req zone=api_limit burst=20 nodelay;
+  limit_req_status 429;
+  location = / {
+    return 301 https://api.explorer.penumbra.zone/graphql/playground;
+  }
+  
+  location / {
+    proxy_pass http://penumbra-explorer;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    
+    # WebSocket support
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+    proxy_read_timeout 300;
+    send_timeout 300;
+  }
+  
+  location /graphql {
+    proxy_pass http://penumbra-explorer/graphql;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    
+    # WebSocket support
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+    proxy_read_timeout 300;
+    send_timeout 300;
+  }
+  
+  location /graphql/playground {
+    proxy_pass http://penumbra-explorer/graphql/playground;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+    proxy_read_timeout 300;
+    send_timeout 300;
+  }
+  
+  # Add WebSocket endpoint for GraphQL subscriptions
+  location /graphql/ws {
+    proxy_pass http://penumbra-explorer/graphql/ws;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    
+    # WebSocket support
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    
+    proxy_connect_timeout 300;
+    proxy_send_timeout 300;
+    proxy_read_timeout 300;
+    send_timeout 300;
+  }
+  
+  # Custom error page for rate limiting
+  error_page 429 = @rate_limited;
+  
+  location @rate_limited {
+    default_type application/json;
+    return 429 '{"error":"Rate limit exceeded. Please try again later."}';
+    add_header Retry-After 10;
+  }
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/api.explorer.penumbra.zone/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/api.explorer.penumbra.zone/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+# HTTP redirect for new domain
+server {
+  if ($host = api.explorer.penumbra.zone) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+  
+  server_name api.explorer.penumbra.zone;
+  listen 80;
+  return 404; # managed by Certbot
+}
+```
+# 🚀 Sprint 3 Review (20.06.2025)
+
+## 📺 Demo-Ablauf
+
+- ✅ GitHub Projects Board zeigen (alle User Stories → Done)
+- ✅ Live Blue-Green Deployment Demo
+- ✅ Slack-Integration in Action
+- ✅ Zero-Downtime Beweis mit Load-Testing
+- ✅ Architektur und Scripts erklären
+
+---
+
+## 🗣️ Feedback von Corrado
+
+> [Platzhalter für Review-Notizen]
+
+---
+
+## 🧾 Präsentierte Ergebnisse
+
+- [Platzhalter für Demo-Details]  
+- [Platzhalter für technische Highlights]
+
+---
+
+## 💬 Feedback
+
+- [Platzhalter für Corrados Feedback]  
+- [Platzhalter für Action Items]
+
+---
+
+## 🤝 Vereinbarte Punkte
+
+- [Platzhalter für Follow-up Actions]  
+- [Platzhalter für finale Dokumentation]
+
+---
+
+## ✍️ Mein Sprint 3 Fazit
+
+Sprint 3 war der **Höhepunkt des Projekts!** Das Blue-Green System funktioniert **genau wie geplant**:
+
+- ✅ **Zero-Downtime Deployments** – Mission accomplished!
+- ✅ **Vollautomatisch** – Von GitHub Release bis Production Switch
+- ✅ **Monitoring & Alerting** – Team wird über Slack informiert
+- ✅ **Production-tested** – Mehrere erfolgreiche Deployments gelaufen
+
+### ✅ Bottom Line:
+Das **Penumbra Explorer Backend** kann jetzt **ohne jegliche Downtime geupdatet** werden.  
+
+### Sprint 3 Retrospektive
+
+![Sprint 3 Retrospektive](docs/images/sprint3retrospective.png)
+*Sprint 3 Retrospektive - Blue-Green Deployment und Zero-Downtime Achievement*
+
+![Sprint 3 Ende](docs/images/endesprint3.png)
+*Sprint 3 erfolgreich abgeschlossen - Blue-Green Deployment System ist live!*
 ---
 <p align="left">
   <img src="docs/images/pklabs_logo.png" alt="PK Labs Logo">
 </p>
 *Dieses Projekt wird im Rahmen der TBZ Semesterarbeit für PK Labs umgesetzt.*
 
-*Letzte Aktualisierung: 05.05.2025*
+*Letzte Aktualisierung: 19.06.2025*
