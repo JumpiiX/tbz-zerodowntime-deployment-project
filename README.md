@@ -23,8 +23,7 @@ Dieses Projekt implementiert ein Zero-Downtime Deployment-System für  Penumbra 
 2. [Projektziele](#projektziele)
 3. [Projektmanagement](#projektmanagement)
 4. [Sprints und Fortschritt](#sprints-und-fortschritt)
-5. [Technische Dokumentation](#technische-dokumentation)
-6. [Risiken](#risiken)
+5. [Fazit](#fazit)
 
 ## Einführung und Problemstellung
 
@@ -1398,6 +1397,40 @@ Das **Penumbra Explorer Backend** kann jetzt **ohne jegliche Downtime geupdatet*
 
 ![Sprint 3 Ende](docs/images/endesprint3.png)
 *Sprint 3 erfolgreich abgeschlossen - Blue-Green Deployment System ist live!*
+
+## Fazit
+
+### Meine erste Semesterarbeit an der TBZ
+
+Obwohl dies die Semesterarbeit des 3. Semesters ist, war es tatsächlich meine erste Semesterarbeit an der TBZ, da ich direkt ins 3. Semester eingestiegen bin. Diese besondere Ausgangslage machte das Projekt zu einer noch intensiveren Lernerfahrung für mich.
+
+### Ein Projekt mit echtem Impact
+
+Was diese Semesterarbeit für mich so wertvoll machte, war die Kombination aus theoretischem Lernen und praktischer Anwendung. Ich konnte nicht nur neue Technologien und Konzepte erlernen, sondern diese direkt in einem produktiven Umfeld bei meinem Arbeitgeber PK Labs einsetzen. Das Resultat – ein vollständiges Zero-Downtime Deployment-System – löst ein reales Problem und wird aktiv genutzt.
+
+### Die Bedeutung von gutem Mentoring
+
+Ein besonderer Dank gilt Corrado Parisi für die drei Sprint Review Meetings. Jedes Mal erhielt ich konstruktives und durchdachtes Feedback, mit dem ich konkret weiterarbeiten konnte. Diese regelmässigen Touchpoints halfen mir, auf Kurs zu bleiben und kontinuierlich zu lernen. Die agile Arbeitsweise mit Scrum, angepasst auf ein Einzelprojekt, erwies sich als ideales Framework für diese Arbeit.
+
+### Win-Win-Win Situation
+
+Am Ende dieses Projekts kann ich mit Stolz sagen, dass alle Beteiligten profitiert haben:
+
+- **Ich selbst** habe enorm viel gelernt – von Blue-Green Deployment-Patterns über Bash-Scripting bis hin zu Production-Ready Infrastructure
+- **PK Labs** erhielt eine robuste Deployment-Lösung, die von 832 Stunden Downtime pro Jahr auf 0 reduziert
+- **Die Dozenten** (so hoffe ich) hatten Freude daran, ein praxisnahes Projekt zu begleiten und zu bewerten
+
+### Persönliche Reflexion
+
+Diese Semesterarbeit hat mir gezeigt, wie bereichernd es ist, wenn Ausbildung und Berufspraxis Hand in Hand gehen. Die Herausforderungen waren real, die Lösungen mussten production-ready sein, und das Feedback war stets konstruktiv. 
+
+Ich hoffe, dass meine Begeisterung für dieses Projekt in der Dokumentation und Präsentation spürbar ist. Es war nicht nur eine Pflichtaufgabe, sondern ein Projekt, in das ich mit Leidenschaft investiert habe.
+
+### Abschliessende Worte
+
+Mit diesem Projekt habe ich bewiesen, dass Zero-Downtime nicht nur ein Buzzword ist, sondern eine erreichbare Realität. Wenn alle Parteien – Student, Unternehmen und Bildungsinstitution – zusammenarbeiten, entstehen Lösungen, die einen echten Mehrwert schaffen.
+
+**Mission Accomplished: Von 34.6 Tagen Downtime auf 0. Für immer.**
 ---
 <p align="left">
   <img src="docs/images/pklabs_logo.png" alt="PK Labs Logo">
