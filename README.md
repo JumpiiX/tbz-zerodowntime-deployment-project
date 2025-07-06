@@ -133,6 +133,45 @@ gantt
 ![SEUSAG-Diagramm](./docs/diagrams/seusagdiagramm.png)
 *SEUSAG-Diagramm - Zero-Downtime Deployment System Systemgrenzen und Komponenten der automatisierten CI/CD-Pipeline*
 
+### SEUSAG-Diagramm Beschreibung
+
+#### Übersicht
+Das SEUSAG-Diagramm zeigt den vollständigen Zero-Downtime Deployment-Prozess mit allen beteiligten Komponenten und deren Schnittstellen.
+
+#### Prozessablauf
+
+**1. Entwickler → GitHub (ES01)**
+- Entwickler pusht Code-Änderungen zu GitHub
+- Erstellt einen neuen Release-Tag
+
+**2. GitHub → CI/CD Pipeline (ES02)**
+- GitHub Actions wird durch Release getriggert
+- Webhook aktiviert die Build-Pipeline
+
+**3. CI/CD Pipeline → Deployment (IS01)**
+- Docker Image wird gebaut
+- Deploy.sh Script wird auf Server ausgeführt
+
+**4. Deploy.sh → Monitor.sh (IS02)**
+- Deploy Script startet neuen Container in inaktiver Umgebung
+- Monitor Script wird gestartet für Health Checks
+
+**5. Monitor.sh → NGINX (IS03)**
+- Monitor Script überwacht Synchronisations-Status
+- Bei "catchup completed" wird NGINX Config angepasst
+
+**6. NGINX → Endbenutzer (ES03)**
+- Traffic wird nahtlos zur neuen Version umgeleitet
+- Zero-Downtime für alle User garantiert
+
+#### Kernkomponenten
+- **deploy.sh**: Orchestriert den gesamten Deployment-Prozess
+- **monitor.sh**: Überwacht Health Status und führt Traffic-Switch durch
+- **NGINX Config**: Load Balancer für Blue-Green Umschaltung
+
+#### Rückkopplung
+Bei Fehlern erfolgt automatischer Rollback zur vorherigen Version über die gleichen Komponenten.
+
 ## Projektziele
 
 Die Ziele dieses Projekts sind nach dem SMART-Prinzip definiert:
