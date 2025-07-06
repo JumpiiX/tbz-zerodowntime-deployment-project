@@ -1351,32 +1351,47 @@ server {
 
 ---
 
-## 🗣️ Feedback von Corrado
-
-> [Platzhalter für Review-Notizen]
-
----
-
 ## 🧾 Präsentierte Ergebnisse
 
-- [Platzhalter für Demo-Details]  
-- [Platzhalter für technische Highlights]
+### Live-Demo des manuellen Deployments
+Ich habe Corrado demonstriert, wie ein Deployment **ohne** Blue-Green aussehen würde:
+- Manueller Switch zwischen aktiver und inaktiver Umgebung
+- Sichtbare Downtime während des Umschaltens
+- User-Impact in Echtzeit gezeigt
+- Deutlicher Kontrast zum automatisierten Blue-Green Deployment
+
+### Technische Highlights
+- Vollautomatisches Monitoring mit Slack-Integration
+- Zero-Downtime Traffic-Switch via NGINX
+- Rollback-Mechanismus bei Fehlern
+- Production-ready Shell Scripts
 
 ---
 
-## 💬 Feedback
+## 💬 Feedback von Corrado
 
-- [Platzhalter für Corrados Feedback]  
-- [Platzhalter für Action Items]
+### Positive Aspekte
+- Projekt läuft technisch einwandfrei
+- Demo war sehr überzeugend - der Vergleich zwischen manuellem und automatisiertem Deployment zeigte den Mehrwert deutlich
+- Gute Projektstruktur und Dokumentation
+
+### Verbesserungsvorschläge
+1. **SEUSAG-Diagramm**: Eine kurze Beschreibung unter dem Bild hinzufügen, die den Prozessablauf erklärt
+2. **Scrum Retrospektive**: Typo im Bild korrigieren
+3. **Komplettes Fazit**: Ein umfassendes Projektfazit für die gesamte Arbeit erstellen
+4. **Präsentation**: Fokus auf verständliche Erklärung des Problems für Nicht-Techniker
 
 ---
 
 ## 🤝 Vereinbarte Punkte
 
-- [Platzhalter für Follow-up Actions]  
-- [Platzhalter für finale Dokumentation]
-
+### Für die Präsentation
+- **Hauptfokus**: Das Problem einfach und verständlich erklären
+- **Ziel**: Die Lösung "verkaufen" - zeigen warum Zero-Downtime wichtig ist
+- **Analogien nutzen**: Banking-App Beispiel für besseres Verständnis
+- **Live-Demo**: Der Wow-Moment wenn kein Request verloren geht
 ---
+
 
 ## ✍️ Mein Sprint 3 Fazit
 
