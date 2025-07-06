@@ -139,7 +139,7 @@ Die Ziele dieses Projekts sind nach dem SMART-Prinzip definiert:
 
 ### 1. Eliminierung von Deployment-bedingten Downtimes
 - **Spezifisch:** Implementierung eines Blue-Green Deployment-Systems, das Updates ohne Ausfallzeit ermöglicht
-- **Messbar:** Reduzierung der Downtime von derzeit durchschnittlich 15 Minuten pro Deployment auf 0 Sekunden
+- **Messbar:** Reduzierung der Downtime von derzeit durchschnittlich 8 Stunden pro Deployment auf 0 Sekunden
 - **Attraktiv:** Erhöhte Verfügbarkeit des Blockchain-Explorers (Ziel: 99,9%)
 - **Realistisch:** Umsetzbar mit NGINX, Docker und automatisierten Scripts
 - **Terminiert:** Vollständig implementiert bis 09.07.2025
